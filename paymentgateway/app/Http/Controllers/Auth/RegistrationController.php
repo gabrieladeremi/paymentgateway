@@ -28,7 +28,7 @@ class RegistrationController extends Controller
             ]);
 
             if ($validateInputs->fails()) {
-                return response()->json([$validateInputs->errors()], 422);
+                return response()->json($validateInputs->errors()->toJson(), 400);
             }
 
             //create and store user information in the database
