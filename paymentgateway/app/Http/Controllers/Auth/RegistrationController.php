@@ -33,6 +33,7 @@ class RegistrationController extends Controller
 
             //create and store user information in the database
             $newUser = User::create([
+                'user_id' => rand(2,5),
                 'firstname' => $request->firstname,
                 'lastname' => $request->lastname,
                 'email' => $request->email,

@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\JwtAuthController;
+use App\Http\Controllers\TransferController;
+use App\Models\Transfer;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,5 +39,18 @@ Route::prefix('auth')
 
             Route::post('/signout', [JwtAuthController::class, 'signout']);
 
+            Route::post('/verify/account', [TransferController::class, 'verifyAccountInfo']);
+
+            Route::post('/recipient', [TransferController::class, 'recipient']);
+
+            Route::post('/initiateTransfer', [TransferController::class, 'initiateTransfer']);
+
+            Route::post('/finalizeTransfer', [TransferController::class, 'finalizeTransfer']);
+
         });
+
+
+
+
+        // Route::get('/payment/callback', [TransferController::class, 'handleGatewayCallback']);
 
