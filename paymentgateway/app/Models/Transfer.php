@@ -10,12 +10,15 @@ class Transfer extends Model
     use HasFactory;
 
     protected $fillable = [
-        'bank',
+        'user_id',
         'amount',
-        'account',
         'reason',
         'currency',
         'reference',
+        'transfer_id',
+        'transfer_code',
+        'status',
+        'transfer_created_at'
 
     ];
 }
